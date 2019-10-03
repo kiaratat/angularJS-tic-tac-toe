@@ -1,1 +1,1 @@
-# angularJS-tic-tac-toe-
+# angularJS-tic-tac-toe
