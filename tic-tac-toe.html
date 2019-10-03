@@ -1,0 +1,100 @@
+<!doctype html>
+<html ng-app="GameApp">
+
+<head>
+    <script src="ref/angularjs/1.7.8/angular.js"></script>
+    <script src="js/tic-tac-toe.js"></script>
+    <!-- <link rel="stylesheet" href="todo.css"> -->
+    <style>
+        body {
+            font: 14px "Century Gothic", Futura, sans-serif;
+            margin: 20px;
+        }
+
+        ol,
+        ul {
+            padding-left: 30px;
+        }
+
+        .board-row:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+        .status {
+            margin-bottom: 10px;
+        }
+
+        .square {
+            background: #fff;
+            border: 1px solid #999;
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 34px;
+            height: 34px;
+            margin-right: -1px;
+            margin-top: -1px;
+            padding: 0;
+            text-align: center;
+            width: 34px;
+        }
+
+        .square:focus {
+            outline: none;
+        }
+
+        .kbd-navigation .square:focus {
+            background: #ddd;
+        }
+
+        .game {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .game-info {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>tic-tac-toe</h2>
+    <div ng-controller="GameController as ctrl">
+        <div id="root"></div>
+        <div class="game">
+            <div class="game-board">
+                <div>
+                    <div className="board-row">
+                        <button type="button" class="square" ng-click="ctrl.square(0)">{{ctrl.current.squares[0]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(1)">{{ctrl.current.squares[1]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(2)">{{ctrl.current.squares[2]}}</button>
+                    </div>
+                    <div className="board-row">
+                        <button type="button" class="square" ng-click="ctrl.square(3)">{{ctrl.current.squares[3]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(4)">{{ctrl.current.squares[4]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(5)">{{ctrl.current.squares[5]}}</button>
+                    </div>
+                    <div className="board-row">
+                        <button type="button" class="square" ng-click="ctrl.square(6)">{{ctrl.current.squares[6]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(7)">{{ctrl.current.squares[7]}}</button>
+                        <button type="button" class="square" ng-click="ctrl.square(8)">{{ctrl.current.squares[8]}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="game-info">
+                <div>{{ctrl.state.gameStatus}}</div>
+                <ol>
+                    <li ng-repeat="move in ctrl.state.history">
+                        <button type="button" ng-click="ctrl.jumpTo($index)">{{move.desc}}</button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
